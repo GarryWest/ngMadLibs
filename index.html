@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="">
+<head>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles/main.css">
+</head>
+<body ng-init="numbers=[0,1,2,3,4,5]">
+	<section class="header">
+		<div class="logo col-1-4">
+			<img src="images/mad-lib-happy-face.png" alt="Mad Lib Happy Face">
+		</div><!--
+		--><div class="logo col-3-4">
+			<img src="images/ng-mad-libs-logo.png">
+			<h1>Automate This!</h1>
+		</div>
+	</section>
+	<section class="hero">
+			<h2>Provide the following words:</h2>
+			<br>
+			<div class="row">
+				<input type="text" placeholder="Male Name" ng-model="maleName" /><input type="text" placeholder="Dirty Task" ng-model="dirtyTask" /><input type="text" placeholder="Obnoxious Celebrity" ng-model="obnoxiousCelebrity" />
+			</div>
+			<div class="row">
+				<input type="text" placeholder="Job Title" ng-model="jobTitle" /><input type="text" placeholder="Celebrity" ng-model="celebrity" /><input type="text" placeholder="Huge Number" ng-model="hugeNumber" />
+			</div>
+			<div class="row">
+				<input type="text" placeholder="Tedious Task" ng-model="tediousTask" /><input type="text" placeholder="Useless Skill" ng-model="uselessSkill" /><input type="text" placeholder="Adjective" ng-model="adjective" />
+			</div>
+	</section>
+	<section class="text">
+		<p>
+			{{maleName}} was a {{jobTitle}} who loved technology.
+			Although he loved parts of his job, he absolutely hated
+			{{tediousTask}} and {{dirtyTask}}. So, {{maleName}}
+			met with his life mentor {{celebrity}} who told him to
+			learn how to {{uselessSkill}} with Thinkful. Thinkful
+			didn't offer a course on {{uselessSkill}} so {{maleName}} studied
+			programming instead.
+		</p>
+		<p>
+			What a great decision! With his new skills, {{maleName}}
+			built a(n) {{adjective}} robot named {{obnoxiousCelebrity}}
+			that not only loved {{dirtyTask}} but did it {{hugeNumber}} times
+			faster.
+		</p>
+	</section>
+
+	
+</body>
+
+</html>
+  
