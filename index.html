@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="ng-app">
 <head>
 	<title>NG Mad Libs</title>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+	
 	<link rel="stylesheet" type="text/css" href="styles/main.css">
 </head>
-<body ng-app="">
+<body >
+
+<div ng-controller="ng-controller">
 	<section class="header">
 		<div class="logo col-1-4">
 			<img src="images/mad-lib-happy-face.png" alt="Mad Lib Happy Face">
@@ -19,7 +22,10 @@
 			<h2>Provide the following words:</h2>
 			<br>
 			<div class="row">
-				<input type="text" placeholder="Male Name" ng-model="maleName" /><input type="text" placeholder="Dirty Task" ng-model="dirtyTask" /><input type="text" placeholder="Obnoxious Celebrity" ng-model="obnoxiousCelebrity" />
+				<input type="text" placeholder="Name" ng-model="name" />
+				Male<input type="radio" ng-model="genderMale" value="true" ng-checked="true">
+				Female<input type="radio" ng-model="genderMale" value="false">
+				<input type="text" placeholder="Dirty Task" ng-model="dirtyTask" /><input type="text" placeholder="Obnoxious Celebrity" ng-model="obnoxiousCelebrity" />
 			</div>
 			<div class="row">
 				<input type="text" placeholder="Job Title" ng-model="jobTitle" /><input type="text" placeholder="Celebrity" ng-model="celebrity" /><input type="text" placeholder="Huge Number" ng-model="hugeNumber" />
@@ -30,23 +36,24 @@
 	</section>
 	<section class="text">
 		<p>
-			{{maleName}} was a {{jobTitle}} who loved technology.
-			Although he loved parts of his job, he absolutely hated
-			{{tediousTask}} and {{dirtyTask}}. So, {{maleName}}
-			met with his life mentor {{celebrity}} who told him to
+			{{name}} was a {{jobTitle}} who loved technology.
+			Although <span ng-if="genderMale=='true'">he</span><span ng-if="genderMale=='false'">she</span> loved parts of <span ng-if="genderMale=='true'">his</span><span ng-if="genderMale=='false'">her</span> job, <span ng-if="genderMale=='true'">he</span><span ng-if="genderMale=='false'">she</span> absolutely hated
+			{{tediousTask}} and {{dirtyTask}}. So, {{name}}
+			met with <span ng-if="genderMale=='true'">his</span><span ng-if="genderMale=='false'">her</span> life mentor {{celebrity}} who told <span ng-if="genderMale=='true'">him</span><span ng-if="genderMale=='false'">her</span> to
 			learn how to {{uselessSkill}} with Thinkful. Thinkful
-			didn't offer a course on {{uselessSkill}} so {{maleName}} studied
+			didn't offer a course on {{uselessSkill}} so {{name}} studied
 			programming instead.
 		</p>
 		<p>
-			What a great decision! With his new skills, {{maleName}}
+			What a great decision! With <span ng-if="genderMale=='true'">his</span><span ng-if="genderMale=='false'">her</span> new skills, {{name}}
 			built a(n) {{adjective}} robot named {{obnoxiousCelebrity}}
 			that not only loved {{dirtyTask}} but did it {{hugeNumber}} times
 			faster.
 		</p>
 	</section>
 
-	
+</div>	
+<script src="scripts/ng-app.js"></script>
 </body>
 
 </html>
