@@ -18,7 +18,8 @@
 			<h1>Automate This!</h1>
 		</div>
 	</section>
-	<section class="hero">
+	<section class="hero" ng-if="needWords==='true'">
+		<form name="myForm" ng-submit="submitted=true; submit()" novalidate>
 			<h2>Provide the following words:</h2>
 			<br>
 			<div class="row">
@@ -32,9 +33,12 @@
 			</div>
 			<div class="row">
 				<input type="text" placeholder="Tedious Task" ng-model="tediousTask" /><input type="text" placeholder="Useless Skill" ng-model="uselessSkill" /><input type="text" placeholder="Adjective" ng-model="adjective" />
+				<hr>
+				<input type="submit" value="Generate My Mad Lib" />	
 			</div>
+		</form>
 	</section>
-	<section class="text">
+	<section class="text" ng-if="needWords==='false'">
 		<p>
 			{{name}} was a {{jobTitle}} who loved technology.
 			Although <span ng-if="genderMale=='true'">he</span><span ng-if="genderMale=='false'">she</span> loved parts of <span ng-if="genderMale=='true'">his</span><span ng-if="genderMale=='false'">her</span> job, <span ng-if="genderMale=='true'">he</span><span ng-if="genderMale=='false'">she</span> absolutely hated
@@ -50,6 +54,7 @@
 			that not only loved {{dirtyTask}} but did it {{hugeNumber}} times
 			faster.
 		</p>
+		<button ng-click="startOver()">Start Over</button>
 	</section>
 
 </div>	
