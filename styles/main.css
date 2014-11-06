@@ -113,4 +113,9 @@ h1 {
   width: 79%;
 }
 
-
+.warning {
+  color: red;
+  background-color: yellow;
+  border: solid black 2px;
+  padding: 2px;
+}
