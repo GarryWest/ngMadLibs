@@ -18,27 +18,28 @@
 			<h1>Automate This!</h1>
 		</div>
 	</section>
-	<section class="hero" ng-if="needWords==='true'">
+	<section class="hero" ng-show="needWords=='true'">
 		<form name="myForm" ng-submit="submitted=true; submit()" novalidate>
 			<h2>Provide the following words:</h2>
 			<br>
 			<div class="row">
-				<input type="text" placeholder="Name" ng-model="name" />
+				<input type="text" placeholder="Name" ng-model="name" name="name" required/>
 				Male<input type="radio" ng-model="genderMale" value="true" ng-checked="true">
 				Female<input type="radio" ng-model="genderMale" value="false">
-				<input type="text" placeholder="Dirty Task" ng-model="dirtyTask" /><input type="text" placeholder="Obnoxious Celebrity" ng-model="obnoxiousCelebrity" />
+				<input type="text" placeholder="Dirty Task" ng-model="dirtyTask" name="dirtyTask" required/><input type="text" placeholder="Obnoxious Celebrity" ng-model="obnoxiousCelebrity" name="obnoxiousCelebrity" required/>
 			</div>
 			<div class="row">
-				<input type="text" placeholder="Job Title" ng-model="jobTitle" /><input type="text" placeholder="Celebrity" ng-model="celebrity" /><input type="text" placeholder="Huge Number" ng-model="hugeNumber" />
+				<input type="text" placeholder="Job Title" ng-model="jobTitle" name="jobTitle" required/><input type="text" placeholder="Celebrity" ng-model="celebrity" name="celebrity" required/><input type="text" placeholder="Huge Number" name="hugeNumber" ng-model="hugeNumber" ng-pattern="/^[0-9]{1,20}$/" required/>
+				<span class="warning" ng-show="myForm.hugeNumber.$error.pattern">Not a valid number!</span>
 			</div>
 			<div class="row">
-				<input type="text" placeholder="Tedious Task" ng-model="tediousTask" /><input type="text" placeholder="Useless Skill" ng-model="uselessSkill" /><input type="text" placeholder="Adjective" ng-model="adjective" />
+				<input type="text" placeholder="Tedious Task" ng-model="tediousTask" name="tediousTask" required/><input type="text" placeholder="Useless Skill" ng-model="uselessSkill" name="uselessSkill" required/><input type="text" placeholder="Adjective" ng-model="adjective" name="adjective" required/>
 				<hr>
-				<input type="submit" value="Generate My Mad Lib" />	
+				<input type="submit" value="Generate My Mad Lib" /><span class="warning" ng-show="requiredFields=='true'">Please fill all fields!</span>	
 			</div>
 		</form>
 	</section>
-	<section class="text" ng-if="needWords==='false'">
+	<section class="text" ng-show="needWords=='false'">
 		<p>
 			{{name}} was a {{jobTitle}} who loved technology.
 			Although <span ng-if="genderMale=='true'">he</span><span ng-if="genderMale=='false'">she</span> loved parts of <span ng-if="genderMale=='true'">his</span><span ng-if="genderMale=='false'">her</span> job, <span ng-if="genderMale=='true'">he</span><span ng-if="genderMale=='false'">she</span> absolutely hated
