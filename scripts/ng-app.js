@@ -1,25 +1,31 @@
-angular.module('ng-app', [])
-	.controller('ng-controller', ['$scope', function($scope) {
-    	$scope.genderMale = "true";
-    	$scope.needWords = "true";	
-    	$scope.requiredFields = "false";
+angular.module('madLibsApp', [])
+	.controller('MainCtrl', ['$scope', function($scope) {
+    	$scope.genderMale = true;
+    	$scope.needWords = true;	
+    	$scope.requiredFields = false;
     	$scope.submit = function(){
-    		if ($scope.myForm.name.$error.required ||
-    		$scope.myForm.dirtyTask.$error.required ||
-    		$scope.myForm.obnoxiousCelebrity.$error.required ||
-    		$scope.myForm.jobTitle.$error.required ||
-    		$scope.myForm.celebrity.$error.required ||
-    		$scope.myForm.hugeNumber.$error.required ||
-    		$scope.myForm.hugeNumber.$error.pattern ||
-    		$scope.myForm.tediousTask.$error.required ||
-    		$scope.myForm.uselessSkill.$error.required ||
-    		$scope.myForm.adjective.$error.required) {
-    			$scope.requiredFields = "true";
-    		} else {
-    			$scope.requiredFields = "false";
-    			$scope.needWords = "false";
-    		};
+
+            var words = ['name',
+            'dirtyTask', 
+            'obnoxiousCelebrity', 
+            'jobTitle', 
+            'celebrity', 
+            'hugeNumber', 
+            'hugeNumber',
+            'tediousTask', 
+            'uselessSkill', 
+            'adjective']
+
+            $scope.requiredFields = false;
+            for (var i=0; i<words.length; i++) {
+                if ($scope.myForm[words[i]].$error.required || $scope.myForm[words[i]].$error.pattern) {
+                    $scope.requiredFields = true;
+                }
+            }
+            $scope.needWords = $scope.requiredFields;
+    
     	};
+
     	$scope.startOver = function(){
     		$scope.name = "";
     		$scope.dirtyTask = "";
@@ -30,9 +36,9 @@ angular.module('ng-app', [])
     		$scope.tediousTask = "";
     		$scope.uselessSkill = "";
     		$scope.adjective = "";
-    		$scope.genderMale = "true";
-    		$scope.needWords = "true";
-    		$scope.requiredFields = "false";
+    		$scope.genderMale = true;
+    		$scope.needWords = true;
+    		$scope.requiredFields = false;
     	};
     }]);
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="ng-app">
+<html ng-app="madLibsApp">
 <head>
 	<title>NG Mad Libs</title>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
@@ -8,7 +8,7 @@
 </head>
 <body >
 
-<div ng-controller="ng-controller">
+<div ng-controller="MainCtrl">
 	<section class="header">
 		<div class="logo col-1-4">
 			<img src="images/mad-lib-happy-face.png" alt="Mad Lib Happy Face">
@@ -18,14 +18,14 @@
 			<h1>Automate This!</h1>
 		</div>
 	</section>
-	<section class="hero" ng-show="needWords=='true'">
+	<section class="hero" ng-show="needWords==true">
 		<form name="myForm" ng-submit="submitted=true; submit()" novalidate>
 			<h2>Provide the following words:</h2>
 			<br>
 			<div class="row">
 				<input type="text" placeholder="Name" ng-model="name" name="name" required/>
-				Male<input type="radio" ng-model="genderMale" value="true" ng-checked="true">
-				Female<input type="radio" ng-model="genderMale" value="false">
+				Male<input type="radio" ng-model="genderMale" value=true ng-checked=true>
+				Female<input type="radio" ng-model="genderMale" value=false>
 				<input type="text" placeholder="Dirty Task" ng-model="dirtyTask" name="dirtyTask" required/><input type="text" placeholder="Obnoxious Celebrity" ng-model="obnoxiousCelebrity" name="obnoxiousCelebrity" required/>
 			</div>
 			<div class="row">
@@ -35,22 +35,22 @@
 			<div class="row">
 				<input type="text" placeholder="Tedious Task" ng-model="tediousTask" name="tediousTask" required/><input type="text" placeholder="Useless Skill" ng-model="uselessSkill" name="uselessSkill" required/><input type="text" placeholder="Adjective" ng-model="adjective" name="adjective" required/>
 				<hr>
-				<input type="submit" value="Generate My Mad Lib" /><span class="warning" ng-show="requiredFields=='true'">Please fill all fields!</span>	
+				<input type="submit" value="Generate My Mad Lib" /><span class="warning" ng-show="requiredFields==true">Please fill all fields!</span>	
 			</div>
 		</form>
 	</section>
-	<section class="text" ng-show="needWords=='false'">
+	<section class="text" ng-hide="needWords">
 		<p>
 			{{name}} was a {{jobTitle}} who loved technology.
-			Although <span ng-if="genderMale=='true'">he</span><span ng-if="genderMale=='false'">she</span> loved parts of <span ng-if="genderMale=='true'">his</span><span ng-if="genderMale=='false'">her</span> job, <span ng-if="genderMale=='true'">he</span><span ng-if="genderMale=='false'">she</span> absolutely hated
+			Although <span ng-show="genderMale==true">he</span><span ng-hide="genderMale">she</span> loved parts of <span ng-show="genderMale==true">his</span><span ng-hide="genderMale">her</span> job, <span ng-show="genderMale==true">he</span><span ng-hide="genderMale">she</span> absolutely hated
 			{{tediousTask}} and {{dirtyTask}}. So, {{name}}
-			met with <span ng-if="genderMale=='true'">his</span><span ng-if="genderMale=='false'">her</span> life mentor {{celebrity}} who told <span ng-if="genderMale=='true'">him</span><span ng-if="genderMale=='false'">her</span> to
+			met with <span ng-show="genderMale==true">his</span><span ng-hide="genderMale">her</span> life mentor {{celebrity}} who told <span ng-show="genderMale==true">him</span><span ng-hide="genderMale">her</span> to
 			learn how to {{uselessSkill}} with Thinkful. Thinkful
 			didn't offer a course on {{uselessSkill}} so {{name}} studied
 			programming instead.
 		</p>
 		<p>
-			What a great decision! With <span ng-if="genderMale=='true'">his</span><span ng-if="genderMale=='false'">her</span> new skills, {{name}}
+			What a great decision! With <span ng-show="genderMale==true">his</span><span ng-hide="genderMale">her</span> new skills, {{name}}
 			built a(n) {{adjective}} robot named {{obnoxiousCelebrity}}
 			that not only loved {{dirtyTask}} but did it {{hugeNumber}} times
 			faster.
