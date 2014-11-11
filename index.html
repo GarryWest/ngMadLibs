@@ -3,19 +3,18 @@
 <head>
 	<title>NG Mad Libs</title>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
-	
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-animate.min.js"></script>	
 	<link rel="stylesheet" type="text/css" href="styles/main.css">
 </head>
 <body >
 
 <div ng-controller="MainCtrl">
-	<section class="header">
-		<div class="logo col-1-4">
-			<img src="images/mad-lib-happy-face.png" alt="Mad Lib Happy Face">
+	<section class="header red-animation" ng-class="{shaded:!needWords}" >
+		<div class="logo col-1-4 blue-animation" ng-class="{shaded:!needWords}" >
+			<img src="images/mad-lib-happy-face.png" alt="Mad Lib Happy Face" >
 		</div><!--
-		--><div class="logo col-3-4">
+		--><div class="logo col-3-4 blue-animation" ng-class="{shaded:!needWords}">
 			<img src="images/ng-mad-libs-logo.png" alt="NG Mad Libs Logo">
-			<h1>Automate This!</h1>
 		</div>
 	</section>
 	<section class="hero" ng-show="needWords==true">
@@ -23,10 +22,10 @@
 			<h2>Provide the following words:</h2>
 			<br>
 			<div class="row">
-				<input type="text" placeholder="Name" ng-model="name" name="name" required/>
+				<input type="text" placeholder="Name" ng-model="name" name="name" autofocus required>
 				Male<input type="radio" ng-model="genderMale" value=true ng-checked=true>
 				Female<input type="radio" ng-model="genderMale" value=false>
-				<input type="text" placeholder="Dirty Task" ng-model="dirtyTask" name="dirtyTask" required/><input type="text" placeholder="Obnoxious Celebrity" ng-model="obnoxiousCelebrity" name="obnoxiousCelebrity" required/>
+				<input type="text" placeholder="Dirty Task" ng-model="dirtyTask" name="dirtyTask" required/><input type="text" placeholder="Obnoxious Celebrity" ng-model="obnoxiousCelebrity" name="obnoxiousCelebrity" required>
 			</div>
 			<div class="row">
 				<input type="text" placeholder="Job Title" ng-model="jobTitle" name="jobTitle" required/><input type="text" placeholder="Celebrity" ng-model="celebrity" name="celebrity" required/><input type="text" placeholder="Huge Number" name="hugeNumber" ng-model="hugeNumber" ng-pattern="/^[0-9]{1,20}$/" required/>
@@ -40,19 +39,19 @@
 		</form>
 	</section>
 	<section class="text" ng-hide="needWords">
-		<p>
-			{{name}} was a {{jobTitle}} who loved technology.
+		<p> 
+			<span class="left" ng-class="{shown:!needWords}">{{name}}</span> was a <span class="right" ng-class="{shown:!needWords}">{{jobTitle}}</span> who loved technology.
 			Although <span ng-show="genderMale==true">he</span><span ng-hide="genderMale">she</span> loved parts of <span ng-show="genderMale==true">his</span><span ng-hide="genderMale">her</span> job, <span ng-show="genderMale==true">he</span><span ng-hide="genderMale">she</span> absolutely hated
-			{{tediousTask}} and {{dirtyTask}}. So, {{name}}
-			met with <span ng-show="genderMale==true">his</span><span ng-hide="genderMale">her</span> life mentor {{celebrity}} who told <span ng-show="genderMale==true">him</span><span ng-hide="genderMale">her</span> to
-			learn how to {{uselessSkill}} with Thinkful. Thinkful
-			didn't offer a course on {{uselessSkill}} so {{name}} studied
+			<span class="left" ng-class="{shown:!needWords}">{{tediousTask}}</span> and <span class="right" ng-class="{shown:!needWords}">{{dirtyTask}}</span>. So, <span class="left" ng-class="{shown:!needWords}">{{name}}</span>
+			met with <span ng-show="genderMale==true">his</span><span ng-hide="genderMale">her</span> life mentor <span class="right" ng-class="{shown:!needWords}">{{celebrity}}</span> who told <span ng-show="genderMale==true">him</span><span ng-hide="genderMale">her</span> to
+			learn how to <span class="left" ng-class="{shown:!needWords}">{{uselessSkill}}</span> with Thinkful. Thinkful
+			didn't offer a course on <span class="right" ng-class="{shown:!needWords}">{{uselessSkill}}</span> so <span class="left" ng-class="{shown:!needWords}">{{name}}</span> studied
 			programming instead.
 		</p>
 		<p>
 			What a great decision! With <span ng-show="genderMale==true">his</span><span ng-hide="genderMale">her</span> new skills, {{name}}
-			built a(n) {{adjective}} robot named {{obnoxiousCelebrity}}
-			that not only loved {{dirtyTask}} but did it {{hugeNumber}} times
+			built a(n) <span class="right" ng-class="{shown:!needWords}">{{adjective}}</span> robot named <span class="left" ng-class="{shown:!needWords}">{{obnoxiousCelebrity}}</span>
+			that not only loved <span class="right" ng-class="{shown:!needWords}">{{dirtyTask}}</span> but did it <span class="left" ng-class="{shown:!needWords}">{{hugeNumber}}</span> times
 			faster.
 		</p>
 		<button ng-click="startOver()">Start Over</button>

@@ -111,6 +111,7 @@ h1 {
 }
 .col-3-4 {
   width: 79%;
+  margin-top: 44px;
 }
 
 .warning {
@@ -119,3 +120,143 @@ h1 {
   border: solid black 2px;
   padding: 2px;
 }
+
+/* Blue Animations */
+
+.blue-animation.shaded-add {
+  -webkit-animation:0.5s blue-shade-on;
+  animation:0.5s blue-shade-on;
+}
+
+@keyframes blue-shade-on {
+  from {
+    background:white;
+  }
+  to {
+    background:blue;
+  }
+}
+
+@-webkit-keyframes blue-shade-on {
+  from {
+    background:white;
+  }
+  to {
+    background:blue;
+  }
+}
+
+.blue-animation.shaded-remove {
+  -webkit-animation:0.5s blue-shade-off;
+  animation:0.5s blue-shade-off;
+}
+
+.blue-animation.shaded {
+  background:blue;
+}
+
+@keyframes blue-shade-off {
+  from {
+    background:blue;
+  }
+  to {
+    background:white;
+  }
+}
+
+@-webkit-keyframes blue-shade-off {
+  from {
+    background:blue;
+  }
+  to {
+    background:white;
+  }
+}
+
+/* Red Animations */
+
+.red-animation.shaded-add {
+  -webkit-animation:0.5s red-shade-on;
+  animation:0.5s red-shade-on;
+}
+
+@keyframes red-shade-on {
+  from {
+    background:white;
+  }
+  to {
+    background:red;
+  }
+}
+
+@-webkit-keyframes red-shade-on {
+  from {
+    background:white;
+  }
+  to {
+    background:red;
+  }
+}
+
+.red-animation.shaded-remove {
+  -webkit-animation:0.5s red-shade-off;
+  animation:0.5s red-shade-off;
+}
+
+.red-animation.shaded {
+  background:red;
+}
+
+@keyframes red-shade-off {
+  from {
+    background:red;
+  }
+  to {
+    background:white;
+  }
+}
+
+@-webkit-keyframes red-shade-off {
+  from {
+    background:red;
+  }
+  to {
+    background:white;
+  }
+}
+
+/* Stagger words */
+/* Left Animations */
+
+.shown-add, .shown-remove {
+  -webkit-transition:all 2s;
+  -moz-transition:all 2s;
+  -o-transition:all 2s;
+  transition:all 2s;
+}
+
+.left {
+  position: relative;
+  left: -500px;
+}
+
+.right {
+  position: relative;
+  left: 500px;
+}
+
+.shown {
+  left: 0px;
+}
+.shown-add.shown-add-active {
+  left: 0px;
+}
+
+.left.shown-remove.shown-remove-active {
+  left:500px;
+}
+
+.right.shown-remove.shown-remove-active {
+  left:-500px;
+}
+
