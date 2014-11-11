@@ -147,8 +147,8 @@ h1 {
 }
 
 .blue-animation.shaded-remove {
-  -webkit-animation:0.5s blue-shade-off;
-  animation:0.5s blue-shade-off;
+  -webkit-animation:5s blue-shade-off;
+  animation:5s blue-shade-off;
 }
 
 .blue-animation.shaded {
@@ -176,8 +176,8 @@ h1 {
 /* Red Animations */
 
 .red-animation.shaded-add {
-  -webkit-animation:0.5s red-shade-on;
-  animation:0.5s red-shade-on;
+  -webkit-animation:5s red-shade-on;
+  animation:5s red-shade-on;
 }
 
 @keyframes red-shade-on {
@@ -229,10 +229,10 @@ h1 {
 /* Left Animations */
 
 .shown-add, .shown-remove {
-  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s;
-  -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s;
-  -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s;
-  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s;
+  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 5s;
+  -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 5s;
+  -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 5s;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 5s;
 }
 
 .left {
