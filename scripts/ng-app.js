@@ -1,4 +1,4 @@
-angular.module('madLibsApp', [])
+angular.module('madLibsApp', ['ngAnimate'])
 	.controller('MainCtrl', ['$scope', function($scope) {
     	$scope.genderMale = true;
     	$scope.needWords = true;	
@@ -23,8 +23,7 @@ angular.module('madLibsApp', [])
                 }
             }
             $scope.needWords = $scope.requiredFields;
-    
-    	};
+       	};
 
     	$scope.startOver = function(){
     		$scope.name = "";
